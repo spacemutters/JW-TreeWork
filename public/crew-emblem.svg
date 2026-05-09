@@ -1,0 +1,10 @@
+<svg width="680" height="420" viewBox="0 0 680 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="680" height="420" rx="30" fill="oklch(0.28 0.05 146)" />
+  <path d="M136 338C190 299 225 240 248 186C262 151 275 108 340 62C405 108 418 151 432 186C455 240 490 299 544 338" stroke="oklch(0.78 0.15 82)" stroke-width="12" stroke-linecap="round"/>
+  <path d="M340 94V342" stroke="oklch(0.84 0.11 85)" stroke-width="16" stroke-linecap="round"/>
+  <path d="M260 187H420" stroke="oklch(0.84 0.11 85)" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="340" cy="82" r="28" fill="oklch(0.78 0.15 82)"/>
+  <text x="340" y="382" text-anchor="middle" fill="oklch(0.95 0.01 95)" font-family="Arial, sans-serif" font-size="34" letter-spacing="5">
+    JW TREE WORK INC.
+  </text>
+</svg>

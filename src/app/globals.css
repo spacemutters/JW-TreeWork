@@ -1,0 +1,166 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--surface-base);
+  --color-foreground: var(--text-primary);
+  --color-card: var(--surface-card);
+  --color-card-foreground: var(--text-primary);
+  --color-popover: var(--surface-elevated);
+  --color-popover-foreground: var(--text-primary);
+  --color-primary: var(--brand-forest);
+  --color-primary-foreground: var(--text-on-dark);
+  --color-secondary: var(--surface-elevated);
+  --color-secondary-foreground: var(--text-primary);
+  --color-muted: var(--surface-muted);
+  --color-muted-foreground: var(--text-muted);
+  --color-accent: var(--brand-amber);
+  --color-accent-foreground: var(--forest-950);
+  --color-destructive: var(--signal-alert);
+  --color-border: var(--surface-border);
+  --color-input: var(--surface-elevated);
+  --color-ring: var(--brand-amber-soft);
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-heading);
+  --tracking-tight: var(--tracking-tight);
+  --tracking-wide: var(--tracking-wide);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+}
+
+:root {
+  --forest-950: oklch(0.2 0.03 146);
+  --forest-900: oklch(0.28 0.05 146);
+  --forest-800: oklch(0.35 0.07 145);
+  --forest-700: oklch(0.46 0.09 145);
+  --amber-500: oklch(0.78 0.15 82);
+  --amber-400: oklch(0.84 0.11 85);
+  --stone-100: oklch(0.95 0.01 95);
+  --stone-300: oklch(0.85 0.02 90);
+  --stone-500: oklch(0.59 0.02 90);
+  --stone-800: oklch(0.36 0.02 92);
+  --white-soft: oklch(0.97 0.01 90);
+
+  --brand-forest: var(--forest-900);
+  --brand-forest-soft: color-mix(in oklch, var(--forest-700) 70%, white 30%);
+  --brand-amber: var(--amber-500);
+  --brand-amber-soft: color-mix(in oklch, var(--amber-500) 50%, white 50%);
+  --surface-base: var(--stone-100);
+  --surface-muted: color-mix(in oklch, var(--stone-100) 84%, var(--forest-800) 16%);
+  --surface-card: color-mix(in oklch, white 88%, var(--forest-900) 12%);
+  --surface-elevated: color-mix(in oklch, white 84%, var(--forest-900) 16%);
+  --surface-border: color-mix(in oklch, var(--forest-700) 30%, var(--stone-300) 70%);
+  --surface-overlay: color-mix(in oklch, var(--forest-900) 88%, black 12%);
+  --text-primary: var(--forest-950);
+  --text-muted: color-mix(in oklch, var(--forest-900) 62%, var(--stone-500) 38%);
+  --text-on-dark: var(--white-soft);
+  --signal-alert: oklch(0.6 0.16 28);
+  --shadow-strong: color-mix(in oklch, var(--forest-950) 40%, transparent 60%);
+  --shadow-soft: color-mix(in oklch, var(--forest-900) 20%, transparent 80%);
+
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4.5rem;
+  --space-4xl: 6rem;
+
+  --tracking-tight: -0.02em;
+  --tracking-wide: 0.04em;
+  --motion-fast: 220ms;
+  --motion-normal: 360ms;
+  --motion-slow: 600ms;
+  --radius-sm: 0.4rem;
+  --radius-md: 0.7rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.35rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body), serif;
+    line-height: 1.5;
+    letter-spacing: 0.004em;
+  }
+
+  :where(a, button, input, select, textarea):focus-visible {
+    outline: 2px solid var(--brand-amber);
+    outline-offset: 3px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading), sans-serif;
+    letter-spacing: var(--tracking-tight);
+  }
+}
+
+@layer utilities {
+  .site-shell {
+    @apply mx-auto w-full max-w-[76rem] px-6 md:px-8;
+  }
+
+  .section-gap {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+
+  .eyebrow {
+    @apply text-xs tracking-[var(--tracking-wide)] uppercase;
+  }
+
+  .section-heading {
+    @apply max-w-3xl space-y-5;
+  }
+
+  .soft-panel {
+    background:
+      linear-gradient(
+        145deg,
+        color-mix(in oklch, white 90%, var(--brand-amber) 10%),
+        color-mix(in oklch, white 84%, var(--brand-forest) 16%)
+      );
+  }
+
+  .quiet-link {
+    @apply underline-offset-4 transition-colors hover:text-accent hover:underline;
+  }
+
+  .texture-grain {
+    background-image:
+      radial-gradient(circle at 12% 18%, color-mix(in oklch, var(--brand-amber) 20%, transparent 80%) 0%, transparent 46%),
+      radial-gradient(circle at 86% 12%, color-mix(in oklch, var(--brand-forest-soft) 42%, transparent 58%) 0%, transparent 55%),
+      radial-gradient(circle at 42% 82%, color-mix(in oklch, var(--brand-amber-soft) 20%, transparent 80%) 0%, transparent 48%),
+      repeating-radial-gradient(
+        circle at 0 0,
+        color-mix(in oklch, var(--white-soft) 18%, transparent 82%) 0,
+        color-mix(in oklch, var(--white-soft) 18%, transparent 82%) 1px,
+        transparent 2px,
+        transparent 4px
+      );
+  }
+
+  .metal-divider {
+    border-color: color-mix(in oklch, var(--surface-border) 55%, white 45%);
+  }
+}
